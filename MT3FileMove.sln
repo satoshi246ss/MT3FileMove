@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MT3FileMove", "MT3FileMove\MT3FileMove.pyproj", "{17FE4F16-FE2E-4553-A463-DA0991C03B26}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "cr2_file_move", "cr2_file_move\cr2_file_move.pyproj", "{CE644010-B008-44ED-AE9C-8DDD3A671797}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "bmp2avi", "bmp2avi\bmp2avi.pyproj", "{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{17FE4F16-FE2E-4553-A463-DA0991C03B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17FE4F16-FE2E-4553-A463-DA0991C03B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE644010-B008-44ED-AE9C-8DDD3A671797}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE644010-B008-44ED-AE9C-8DDD3A671797}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
