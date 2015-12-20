@@ -159,7 +159,6 @@ def mt3filemove(dt = datetime.datetime.now()):
     proc_move(SoucePath5,TargetPath1) #Train Liva1 
     proc_move(SoucePath8,TargetPath1) #MT3 MJ34LL(Fine2) 
     
-
     #指定する画像フォルダ
 
     TargetPath100 = "J:/MT"
