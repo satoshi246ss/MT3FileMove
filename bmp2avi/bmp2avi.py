@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ï»¿# -*- coding: utf-8 -*-
 
 import cv2
 import numpy as np
@@ -52,7 +52,7 @@ def bmp2avi(path_dir, target_dir, remake=False):
         
         f.close()
 
-    # 2“x–Ú‚Ìavi‰»‚Ís‚í‚È‚¢
+    # 2åº¦ç›®ã®aviåŒ–ã¯è¡Œã‚ãªã„
     print "Check:"+path_dir+"avi_make_ended.txt"
     if os.path.exists(path_dir+"avi_make_ended.txt" ) and remake==False :
         print "avi_make_ended.txt exist!!"
@@ -83,7 +83,7 @@ def bmp2avi(path_dir, target_dir, remake=False):
         ft.append( fn[4:] )
     dic = dict(zip(ft,files))
 
-    # key’l‚Åƒ\[ƒg
+    # keyå€¤ã§ã‚½ãƒ¼ãƒˆ
     for k, fn in sorted(dic.items()):
         print k, fn
     
@@ -103,7 +103,7 @@ def bmp2avi(path_dir, target_dir, remake=False):
 
     print "Output:",filename
     
-    #aviì¬Ï‚İ–Úˆó
+    #aviä½œæˆæ¸ˆã¿ç›®å°
     f=open(path_dir+"avi_make_ended.txt","w")
     f.close()
     print path_dir+"avi_make_ended.txt"
@@ -127,7 +127,7 @@ def fish_dir_org(main_dir):
         else :
             flog.append( f )
             zf.write( main_dir + f )
-    # ƒƒOƒtƒ@ƒCƒ‹ì¬        
+    # ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ        
     zf.close()
     
     
@@ -168,7 +168,7 @@ def fish_dir(main_dir, t_dir, remake=False):
         else :
             flog.append( f )
 #            zf.write( main_dir + f )
-    # ƒƒOƒtƒ@ƒCƒ‹ì¬        
+    # ãƒ­ã‚°ãƒ•ã‚¡ã‚¤ãƒ«ä½œæˆ        
 #    zf.close()
     
     
@@ -182,7 +182,7 @@ if __name__ == '__main__':
     #t_dir = './'
     #fish_dir(main_dir, t_dir)
 
-    #w’è‚·‚é‰æ‘œƒtƒHƒ‹ƒ_
+    #æŒ‡å®šã™ã‚‹ç”»åƒãƒ•ã‚©ãƒ«ãƒ€
     path_dir ='C:/temp/tmp/14368/'
     target_dir ='C:/temp/'
     bmp2avi(path_dir,target_dir)

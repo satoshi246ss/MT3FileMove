@@ -1,4 +1,4 @@
-#! C:/tool/Python27/python.exe
+ï»¿#! C:/tool/Python27/python.exe
 # -*- coding: utf-8 -*-
 
 import sys
@@ -106,9 +106,9 @@ def MakeNewFileName(fn, dev_id, sdir=''):
     return t1
 
 #---------------------------------------------------
-# avi ƒtƒ@ƒCƒ‹ƒRƒs[
+# avi ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼
 def proc_cr2_move(SoucePath,TargetPath,dev_id):
-    # ğŒŠm”F
+    # æ¡ä»¶ç¢ºèª
     if os.path.exists(SoucePath) == False:
         print "Souce path '%s' not exists!" % SoucePath
         return SoucePath
@@ -146,13 +146,13 @@ def proc_cr2_move(SoucePath,TargetPath,dev_id):
 
 if __name__ == '__main__':
 
-    #w’è‚·‚é‰æ‘œƒtƒHƒ‹ƒ_
+    #æŒ‡å®šã™ã‚‹ç”»åƒãƒ•ã‚©ãƒ«ãƒ€
     TargetPath='C:/temp/'
     SoucePath='C:/temp/tmp/'
     dev_id="12"
     proc_cr2_move(SoucePath,TargetPath,dev_id)
 
-    #w’è‚·‚é‰æ‘œƒtƒHƒ‹ƒ_
+    #æŒ‡å®šã™ã‚‹ç”»åƒãƒ•ã‚©ãƒ«ãƒ€
 #    TargetPath='J:/MT/'
 #    SoucePath='J:/DCIM/100EOS5D/'
 #    dev_id="12"

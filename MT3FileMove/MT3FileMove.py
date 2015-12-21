@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ï»¿# -*- coding: utf-8 -*-
 
 import os
 import sys
@@ -9,12 +9,12 @@ import cr2_file_move
 import bmp2avi
 
 #---------------------------------------------------
-# 00002_ .avi ƒtƒ@ƒCƒ‹–¼•ÏX
+# 00002_ .avi ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´
 # datedir -> yyyymmdd
 #
 def proc_00002_rename(BaseSoucePath,dir):
     datedir = dir.replace("/","")
-    # ðŒŠm”F
+    # æ¡ä»¶ç¢ºèª
     if os.path.exists(BaseSoucePath) == False:
         print "Base Souce path '%s' not exists!" % BaseSoucePath
         return BaseSoucePath
@@ -38,7 +38,7 @@ def proc_00002_rename(BaseSoucePath,dir):
             TPath = BaseSoucePath+"/"+fdate
             if os.path.exists(TPath) == False:
                 os.makedirs(TPath)
-            # _00.avi@‚È‚ç@íœ
+            # _00.aviã€€ãªã‚‰ã€€å‰Šé™¤
             if ( f.find("_00.avi")>-1 or f.find("_00t.txt")>-1) and os.path.exists( TPath+"/"+f ) :
                 print "remove:"+TPath+"/"+f
                 os.remove( TPath+"/"+f )
@@ -50,9 +50,9 @@ def proc_00002_rename(BaseSoucePath,dir):
                 print 'no such file'
 
 #---------------------------------------------------
-# avi ƒtƒ@ƒCƒ‹ƒRƒs[
+# avi ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼
 def proc_move(SoucePath,TargetPath,Extension=".avi"):
-    # ðŒŠm”F
+    # æ¡ä»¶ç¢ºèª
     if os.path.exists(SoucePath) == False:
         print "Souce path '%s' not exists!" % SoucePath
         return SoucePath
@@ -78,9 +78,9 @@ def proc_move(SoucePath,TargetPath,Extension=".avi"):
 
     print 'Complete!!!'
 #---------------------------------------------------
-# FishEye ƒfƒBƒŒƒNƒgƒŠƒRƒs[
+# FishEye ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã‚³ãƒ”ãƒ¼
 def proc_dir_move(SoucePath,TargetPath):
-    # ðŒŠm”F
+    # æ¡ä»¶ç¢ºèª
     if os.path.exists(TargetPath) == False:
         os.makedirs(TargetPath)
 
@@ -100,13 +100,13 @@ def proc_dir_move(SoucePath,TargetPath):
             
     print 'MoveDir Complete!!!!'
 #---------------------------------------------------
-# ‹óƒfƒBƒŒƒNƒgƒŠ‚Ìíœ
+# ç©ºãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã®å‰Šé™¤
 def proc_dir_remove(TargetPath):
     # dir list up
     #dirList = os.listdir(TargetPath)
     #for f in dirList:
 
-    # ðŒŠm”F
+    # æ¡ä»¶ç¢ºèª
     if os.path.exists(TargetPath) == True :
         try:
             os.removedirs(TargetPath)
@@ -116,19 +116,19 @@ def proc_dir_remove(TargetPath):
             #break
             
         except Exception as e:
-            print '=== ƒGƒ‰[(proc_dir_remove) ==='
+            print '=== ã‚¨ãƒ©ãƒ¼(proc_dir_remove) ==='
             print 'type:' + str(type(e))
             print 'args:' + str(e.args)    
             print 'message:' + e.message    
-            print 'eŽ©g:' + str(e)
+            print 'eè‡ªèº«:' + str(e)
             
 #---------------------------------------------------
-# avi ƒtƒ@ƒCƒ‹ƒRƒs[
+# avi ãƒ•ã‚¡ã‚¤ãƒ«ã‚³ãƒ”ãƒ¼
 def mt3filemove(dt = datetime.datetime.now()):
     dir = dt.strftime("/%Y%m%d")
     print dt,dir
     
-#    TargetPath1 = "J:/MT"+dir+"/MT3" #2014 8 11‰º‚É•ÏX
+#    TargetPath1 = "J:/MT"+dir+"/MT3" #2014 8 11ä¸‹ã«å¤‰æ›´
 
     BaseSoucePath = "J:/MT"
     TargetPath1 = "J:/MT"+dir
@@ -159,7 +159,7 @@ def mt3filemove(dt = datetime.datetime.now()):
     proc_move(SoucePath5,TargetPath1) #Train Liva1 
     proc_move(SoucePath8,TargetPath1) #MT3 MJ34LL(Fine2) 
     
-    #Žw’è‚·‚é‰æ‘œƒtƒHƒ‹ƒ_
+    #æŒ‡å®šã™ã‚‹ç”»åƒãƒ•ã‚©ãƒ«ãƒ€
 
     TargetPath100 = "J:/MT"
     SoucePath100  = "J:/DCIM/100EOS5D/"
@@ -173,15 +173,15 @@ def mt3filemove(dt = datetime.datetime.now()):
     dev_id="20"
     cr2_file_move.proc_cr2_move(SoucePath102,TargetPath100,dev_id)
     
-    # 00002_‚Ìƒtƒ@ƒCƒ‹–¼•ÏXŒãA”NŒŽ“úƒfƒBƒŒƒNƒgƒŠ‚ÉÄU‚è•ª‚¯
+    # 00002_ã®ãƒ•ã‚¡ã‚¤ãƒ«åå¤‰æ›´å¾Œã€å¹´æœˆæ—¥ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒªã«å†æŒ¯ã‚Šåˆ†ã‘
     proc_00002_rename(BaseSoucePath,dir)
     
 #---------------------------------------------------
 # main
-# “ú•tŽw’è   
+# æ—¥ä»˜æŒ‡å®š   
 if __name__ == "__main__":
     dtnow = datetime.datetime.now()
-    drange=1 #ŽÀs“ú”i–ß‚è“ú”j
+    drange=1 #å®Ÿè¡Œæ—¥æ•°ï¼ˆæˆ»ã‚Šæ—¥æ•°ï¼‰
     if len( sys.argv )   >= 5:
         yyyy=int(sys.argv[1])
         mm  =int(sys.argv[2])
@@ -206,19 +206,19 @@ if __name__ == "__main__":
         drange =7
     
     if yyyy < 2000 or yyyy > dtnow.year :
-        print "Year '%s' ”ÍˆÍŠO" % yyyy
+        print "Year '%s' ç¯„å›²å¤–" % yyyy
         sys.exit()
 
     if mm < 1 or mm > 12 :
-        print "Month '%s' ”ÍˆÍŠO" % mm
+        print "Month '%s' ç¯„å›²å¤–" % mm
         sys.exit()
     
     if dd < 1 or dd > 31 :
-        print "Day '%s' ”ÍˆÍŠO" % dd
+        print "Day '%s' ç¯„å›²å¤–" % dd
         sys.exit()
 
     if drange < 1 or drange > 365 :
-        print "Drange '%s' ”ÍˆÍŠO" % drange
+        print "Drange '%s' ç¯„å›²å¤–" % drange
         sys.exit()
     
     for i in range(drange):
