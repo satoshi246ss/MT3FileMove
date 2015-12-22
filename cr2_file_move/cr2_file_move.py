@@ -132,17 +132,20 @@ def proc_cr2_move(SoucePath,TargetPath,dev_id):
                     os.makedirs(TargetPath+"/"+obsdate)
                 
                 src = SoucePath + file
-                dst = TargetPath +"/"+obsdate + file
+                dst = TargetPath +"/"+obsdate +"/"+ file
                 if os.path.exists(dst):
-                    print "Destination path '%s' already exists!" % dst
+                    print "Destination path '%s' already exists!!" % dst
+                    continue
                 else:
                     try:
-                        print src + " -> " +TargetPath+"/"+obsdate
+                        print src + " -> " +TargetPath+"/"+obsdate+"["+dst+"]"
                         shutil.move(src, TargetPath+"/"+obsdate)
                     except OSError:
                         print 'no such file'
+                        continue
 
     print 'Complete!!!'
+
 
 if __name__ == '__main__':
 
