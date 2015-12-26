@@ -68,7 +68,7 @@ def proc_move(SoucePath,TargetPath,Extension=".avi"):
             src = SoucePath +"/"+ f
             dst = TargetPath +"/"+ f
           
-            file_move(f,SoucePath,TargetPath)
+            cr2_file_move.file_move(f,SoucePath,TargetPath)
 
     print 'Complete!!!'
 #---------------------------------------------------
@@ -123,7 +123,6 @@ def mt3filemove(dt = datetime.datetime.now()):
     print dt,dir
     
 #    TargetPath1 = "J:/MT"+dir+"/MT3" #2014 8 11下に変更
-
     BaseSoucePath = "J:/MT"
     TargetPath1 = "J:/MT"+dir
     TargetPath2 = "J:/MT"+dir+"/Fish1"
@@ -143,6 +142,9 @@ def mt3filemove(dt = datetime.datetime.now()):
     proc_move(SoucePath3,TargetPath2,".log") #AFP Fish data
     proc_dir_move(SoucePath3,TargetPath2) #AFP Fish data
     bmp2avi.fish_dir(TargetPath2, TargetPath1)
+
+    # 00002_のファイル名変更後、年月日ディレクトリに再振り分け
+    proc_00002_rename(BaseSoucePath,dir)
 
     # other cam
     proc_move(SoucePath6,TargetPath1) #MT3 TX100S3 (Wide)
@@ -167,8 +169,6 @@ def mt3filemove(dt = datetime.datetime.now()):
     dev_id="20"
     cr2_file_move.proc_cr2_move(SoucePath102,TargetPath100,dev_id)
     
-    # 00002_のファイル名変更後、年月日ディレクトリに再振り分け
-    proc_00002_rename(BaseSoucePath,dir)
     
 #---------------------------------------------------
 # main
