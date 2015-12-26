@@ -67,14 +67,8 @@ def proc_move(SoucePath,TargetPath,Extension=".avi"):
         if (f.find(Extension) > -1) :
             src = SoucePath +"/"+ f
             dst = TargetPath +"/"+ f
-            if os.path.exists(dst):
-                print "Destination path '%s' already exists!" % dst
-            else:
-                try:
-                    print src + " -> " +TargetPath
-                    shutil.move(src, TargetPath)
-                except OSError:
-                    print 'no such file'
+          
+            file_move(f,SoucePath,TargetPath)
 
     print 'Complete!!!'
 #---------------------------------------------------

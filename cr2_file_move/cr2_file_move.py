@@ -5,6 +5,8 @@ import sys
 import os
 import re
 import shutil
+import datetime
+import unittest
 
 from struct import *
 
@@ -70,7 +72,10 @@ def FindDateTimeOffsetFromCR2( buffer, ifd_offset, endian_flag, pflag=False ):
             datetime_offset = value
 
     return datetime_offset
-
+#
+# file type (.CR2) のチェック
+# 画像の撮影時間の抽出
+# 時間を明記したファイル名生成
 def MakeNewFileName(fn, dev_id, sdir=''):
     # file type check
     if not (fn.endswith(".CR2") and len(fn)==12) :
@@ -107,6 +112,7 @@ def MakeNewFileName(fn, dev_id, sdir=''):
 
 #---------------------------------------------------
 # avi ファイルコピー
+#
 def proc_cr2_move(SoucePath,TargetPath,dev_id):
     # 条件確認
     if os.path.exists(SoucePath) == False:
@@ -130,24 +136,64 @@ def proc_cr2_move(SoucePath,TargetPath,dev_id):
                 obsdate=file.split("_")[0]
                 if os.path.exists(TargetPath+"/"+obsdate) == False:
                     os.makedirs(TargetPath+"/"+obsdate)
-                
-                src = SoucePath + file
-                dst = TargetPath +"/"+obsdate +"/"+ file
-                if os.path.exists(dst):
-                    print "Destination path '%s' already exists!!" % dst
-                    continue
-                else:
-                    try:
-                        print src + " -> " +TargetPath+"/"+obsdate+"["+dst+"]"
-                        shutil.move(src, TargetPath+"/"+obsdate)
-                    except OSError:
-                        print 'no such file'
-                        continue
 
+                file_move(file,SoucePath,TargetPath+obsdate+"/")
     print 'Complete!!!'
+
+#---------------------------------------------------
+# ファイルムーブ
+# ターゲットなしなら、そのままmove
+# ターゲットに同名ファイルありなら、サイズ（大きい方が正）日付（新しい方が正）
+# ソースが正なら、ターゲット削除後、ムーブ
+# ソースが否なら、ソースを別名で移動（+".1"）
+#              fn      dir(/)   dir(/)
+def file_move(Filename,SouceDir,TargetDir):
+    if SouceDir[-1:]!="/":
+        SouceDir +="/"
+    if TargetDir[-1:]!="/":
+        TargetDir +="/"
+    src = SouceDir  + Filename
+    dst = TargetDir + Filename
+    #print Filename,SouceDir,TargetDir
+    if not os.path.exists(src):
+        return 
+    if os.path.exists(dst):
+        #print "Destination path '%s' already exists!!" % dst
+        if os.path.getsize(src) > os.path.getsize(dst):
+            os.remove(dst)
+            shutil.move(src,TargetDir)
+        else:
+            dt_target = datetime.datetime.fromtimestamp(os.stat(dst).st_mtime)
+            dt_souce  = datetime.datetime.fromtimestamp(os.stat(src).st_mtime)
+            if dt_target >= dt_souce:
+                os.remove(src)
+            else:                
+                shutil.move(src+".1",TargetDir)
+    else:
+        try:
+            shutil.move(src, TargetDir)
+        except OSError:
+            print 'no such file'
+
+# テスト対象の関数
+def factorial(n):
+    """factorial function"""
+    if n < 2:
+        return 1
+    return factorial(n - 1)
+
+# テストケースをまとめたクラス
+# メソッド名が test で始まるメソッドがひとつのテストとなる
+class FactorialTest(unittest.TestCase):
+
+    def test_factorial_with_arg_1(self):
+        expected = 1
+        actual = factorial(1)
+        self.assertEqual(expected, actual)
 
 
 if __name__ == '__main__':
+#    unittest.main()
 
     #指定する画像フォルダ
     TargetPath='C:/temp/'
