@@ -9,6 +9,8 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "cr2_file_move", "cr2_file_m
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "bmp2avi", "bmp2avi\bmp2avi.pyproj", "{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "delaunay_dazdalt_map", "delaunay_dazdalt_map\delaunay_dazdalt_map.pyproj", "{91F64907-0EAD-42F7-96E4-1AA619158D83}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,8 @@ Global
 		{CE644010-B008-44ED-AE9C-8DDD3A671797}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91F64907-0EAD-42F7-96E4-1AA619158D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91F64907-0EAD-42F7-96E4-1AA619158D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
