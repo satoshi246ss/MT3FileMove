@@ -11,6 +11,10 @@ Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "bmp2avi", "bmp2avi\bmp2avi.
 EndProject
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "delaunay_dazdalt_map", "delaunay_dazdalt_map\delaunay_dazdalt_map.pyproj", "{91F64907-0EAD-42F7-96E4-1AA619158D83}"
 EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "MT3FileNameChange", "MT3FileNameChange\MT3FileNameChange.pyproj", "{70304CFC-532D-41E6-8EDF-758DCE07DFCB}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PlayVideo", "PlayVideo.py\PlayVideo.pyproj", "{10DCBDF2-0D53-4D45-8926-A7FA03AFF4C8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +29,10 @@ Global
 		{CA23E703-EFAB-4FE9-9BE0-1FC0E1C7EEDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91F64907-0EAD-42F7-96E4-1AA619158D83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{91F64907-0EAD-42F7-96E4-1AA619158D83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70304CFC-532D-41E6-8EDF-758DCE07DFCB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70304CFC-532D-41E6-8EDF-758DCE07DFCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10DCBDF2-0D53-4D45-8926-A7FA03AFF4C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10DCBDF2-0D53-4D45-8926-A7FA03AFF4C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

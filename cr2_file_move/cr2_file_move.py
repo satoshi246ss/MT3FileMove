@@ -114,6 +114,7 @@ def MakeNewFileName(fn, dev_id, sdir=''):
 # avi ファイルコピー
 #
 def proc_cr2_move(SoucePath,TargetPath,dev_id):
+    print "proc_cr2_move:",SoucePath,TargetPath,dev_id
     # 条件確認
     if os.path.exists(SoucePath) == False:
         print "Souce path '%s' not exists!" % SoucePath
@@ -124,8 +125,8 @@ def proc_cr2_move(SoucePath,TargetPath,dev_id):
 
     files = os.listdir(SoucePath)
     for file in files:
-        jpg = re.compile("CR2")
-        if jpg.search(file):
+        img_type = re.compile("CR2")
+        if img_type.search(file):
             newfn = MakeNewFileName(file, dev_id, SoucePath)
             #print file
             #print newfn
