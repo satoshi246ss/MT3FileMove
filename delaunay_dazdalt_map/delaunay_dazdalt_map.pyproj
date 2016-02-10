@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>91f64907-0ead-42f7-96e4-1aa619158d83</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>delaunay_dazdalt_map.py</StartupFile>
+    <StartupFile>inter2D.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>

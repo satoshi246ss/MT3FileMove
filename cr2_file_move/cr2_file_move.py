@@ -114,7 +114,6 @@ def MakeNewFileName(fn, dev_id, sdir=''):
 # avi ファイルコピー
 #
 def proc_cr2_move(SoucePath,TargetPath,dev_id):
-    print "proc_cr2_move:",SoucePath,TargetPath,dev_id
     # 条件確認
     if os.path.exists(SoucePath) == False:
         print "Souce path '%s' not exists!" % SoucePath
@@ -125,8 +124,8 @@ def proc_cr2_move(SoucePath,TargetPath,dev_id):
 
     files = os.listdir(SoucePath)
     for file in files:
-        img_type = re.compile("CR2")
-        if img_type.search(file):
+        jpg = re.compile("CR2")
+        if jpg.search(file):
             newfn = MakeNewFileName(file, dev_id, SoucePath)
             #print file
             #print newfn
@@ -161,20 +160,34 @@ def file_move(Filename,SouceDir,TargetDir):
     if os.path.exists(dst):
         #print "Destination path '%s' already exists!!" % dst
         if os.path.getsize(src) > os.path.getsize(dst):
-            os.remove(dst)
-            shutil.move(src,TargetDir)
+            try:
+                os.remove(dst)
+                shutil.move(src,TargetDir)
+            except WindowsError:
+                print 'file error1'
         else:
             dt_target = datetime.datetime.fromtimestamp(os.stat(dst).st_mtime)
             dt_souce  = datetime.datetime.fromtimestamp(os.stat(src).st_mtime)
             if dt_target >= dt_souce:
-                os.remove(src)
+                try:
+                    os.remove(src)
+                except WindowsError:
+                    print 'file error2'
             else:                
-                shutil.move(src+".1",TargetDir)
+                try:
+                    os.rename(src,src+".1")                
+                    shutil.move(src+".1",TargetDir)
+                except OSError:
+                    print 'no such file '+src
+                except IOError:
+                    print 'IOError in move '+src        
     else:
         try:
             shutil.move(src, TargetDir)
         except OSError:
-            print 'no such file'
+            print 'no such file '+src
+        except IOError:
+            print 'IOError in move '+src
 
 # テスト対象の関数
 def factorial(n):

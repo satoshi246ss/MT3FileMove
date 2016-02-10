@@ -6,7 +6,8 @@ import matplotlib.pyplot as plt
 
 #
 import csv
-fn='star_pos_data.txt'
+fn='star_pos_data.txt' # MT2
+fn='8_star_position_error_201602.txt' # MT3
 print "Input:",fn
 f = open(fn)
 lines2 = f.readlines() # 1行毎にファイル終端まで全て読む(改行文字も含まれる)
