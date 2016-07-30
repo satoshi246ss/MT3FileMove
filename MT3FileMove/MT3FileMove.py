@@ -124,16 +124,18 @@ def mt3filemove(dt = datetime.datetime.now()):
     
 #    TargetPath1 = "J:/MT"+dir+"/MT3" #2014 8 11下に変更
     BaseSoucePath = "J:/MT"
-    TargetPath1 = "J:/MT"+dir
-    TargetPath2 = "J:/MT"+dir+"/Fish1"
-    SoucePath1 = "T:"+dir
-    SoucePath2 = "U:/public/piccolo"+dir
-    SoucePath3 = "R:"+dir
-    SoucePath4 = "V:"+dir
-    SoucePath5 = "W:"+dir
-    SoucePath6 = "X:"+dir
-    SoucePath7 = "T:"+dir
-    SoucePath8 = "Y:"+dir
+    TargetPath1   = "J:/MT"+dir
+    TargetPath2   = "J:/MT"+dir+"/Fish1"
+    SoucePath1 = "X:"+dir                # TX100S3 (Wide)
+    SoucePath2 = "U:/public/piccolo"+dir # TX100S3 (SpCam)
+    SoucePath3 = "R:"+dir  # SC440
+    SoucePath4 = "V:"+dir  # I5-3450  8:MT3Fine
+    #SoucePath5 = "W:"+dir  # TX100S3-b
+    #SoucePath6 = "X:"+dir  # TX100S3
+    SoucePath7 = "T:"+dir  # HP6200SFF1
+    SoucePath8 = "Y:"+dir  # MJ34
+    SoucePath9 = "O:"+dir  # HP6300SFF-3 (Fish2)
+    SoucePath10= "Q:"+dir  # HP6300SFF1  (SF)
 
     # fishdata
     proc_move(SoucePath3,TargetPath1) #SpCam mon SC440
@@ -147,13 +149,16 @@ def mt3filemove(dt = datetime.datetime.now()):
     proc_00002_rename(BaseSoucePath,dir)
 
     # other cam
-    proc_move(SoucePath6,TargetPath1) #MT3 TX100S3 (Wide)
-    proc_move(SoucePath2,TargetPath1) #MT3 TX100S3 (SpCam)
-    proc_move(SoucePath7,TargetPath1) #MT3 I5-3450(Fine) 
-    proc_move(SoucePath4,TargetPath1) #MT3 I5-3450(SF)
-    proc_move(SoucePath1,TargetPath1) #MT3 I5-3450(PV)
-    proc_move(SoucePath5,TargetPath1) #Train Liva1 
-    proc_move(SoucePath8,TargetPath1) #MT3 MJ34LL(Fine2) 
+    proc_move(SoucePath1, TargetPath1) #MT3 TX100S3 (Wide)
+    proc_move(SoucePath2, TargetPath1) #MT3 TX100S3 (SpCam)
+
+    proc_move(SoucePath4, TargetPath1) #MT3 I5-3450(Fine)
+    #proc_move(SoucePath5, TargetPath1) # TX100S3-b
+    #proc_move(SoucePath6, TargetPath1) 
+    proc_move(SoucePath7, TargetPath1) #MT3 HP6200SFF1 (NUV, NIR)    
+    proc_move(SoucePath8, TargetPath1) #MT3 MJ34LL(MT2Wide, MT2Echelle) 
+    proc_move(SoucePath9, TargetPath1) #MT3 HP6300SFF1 (SF)    
+    proc_move(SoucePath10,TargetPath1) #MT3 HP6300SFF3 (Fish2)    
     
     #指定する画像フォルダ
 
