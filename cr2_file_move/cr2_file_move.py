@@ -154,7 +154,7 @@ def file_move(Filename,SouceDir,TargetDir):
         TargetDir +="/"
     src = SouceDir  + Filename
     dst = TargetDir + Filename
-    #print Filename,SouceDir,TargetDir
+    print Filename,SouceDir,TargetDir,src,dst
     if not os.path.exists(src):
         return 
     if os.path.exists(dst):
@@ -180,14 +180,14 @@ def file_move(Filename,SouceDir,TargetDir):
                 except OSError:
                     print 'no such file '+src
                 except IOError:
-                    print 'IOError in move '+src        
+                    print 'IOError(1) in move '+src        
     else:
         try:
             shutil.move(src, TargetDir)
         except OSError:
             print 'no such file '+src
         except IOError:
-            print 'IOError in move '+src
+            print 'IOError(2) in move '+src
 
 # テスト対象の関数
 def factorial(n):

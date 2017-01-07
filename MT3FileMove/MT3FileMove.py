@@ -70,6 +70,7 @@ def proc_move(SoucePath,TargetPath,Extension=".avi"):
           
             cr2_file_move.file_move(f,SoucePath,TargetPath)
 
+    proc_dir_remove(SoucePath)
     print 'Complete!!!'
 #---------------------------------------------------
 # FishEye ディレクトリコピー
@@ -95,7 +96,7 @@ def proc_dir_move(SoucePath,TargetPath):
     print 'MoveDir Complete!!!!'
 #---------------------------------------------------
 # 空ディレクトリの削除
-def proc_dir_remove(TargetPath):
+def proc_dir_remove_old(TargetPath):
     # dir list up
     #dirList = os.listdir(TargetPath)
     #for f in dirList:
@@ -115,6 +116,28 @@ def proc_dir_remove(TargetPath):
             print 'args:' + str(e.args)    
             print 'message:' + e.message    
             print 'e自身:' + str(e)
+#---------------------------------------------------
+# 空ディレクトリの削除
+def proc_dir_remove(path):
+    for root, dirs, files in os.walk(path, topdown=False):
+        #for file_ in files:
+        #    full_path = os.path.join(path, file_)
+        #    print full_path
+        for dir_ in dirs:
+            full_path = os.path.join(path, dir_)
+            print mt_rmdir( full_path )
+             
+#---------------------------------------------------
+def mt_rmdir(path):
+    result = path
+    try:
+        os.rmdir(path)
+    except:
+        result = ""
+    #finally:
+        #if result != "" :
+        #    print "rmdir: "+path
+    return result
             
 #---------------------------------------------------
 # avi ファイルコピー
@@ -123,9 +146,10 @@ def mt3filemove(dt = datetime.datetime.now()):
     print dt,dir
     
 #    TargetPath1 = "J:/MT"+dir+"/MT3" #2014 8 11下に変更
-    BaseSoucePath = "J:/MT"
-    TargetPath1   = "J:/MT"+dir
-    TargetPath2   = "J:/MT"+dir+"/Fish1"
+    TargetDrive   = "J:"
+    BaseSoucePath = TargetDrive + "/MT"
+    TargetPath1   = BaseSoucePath + dir
+    TargetPath2   = BaseSoucePath + dir + "/Fish1"
     SoucePath1 = "X:"+dir                # TX100S3 (Wide)
     SoucePath2 = "U:/public/piccolo"+dir # TX100S3 (SpCam)
     SoucePath3 = "R:"+dir  # SC440
@@ -162,15 +186,15 @@ def mt3filemove(dt = datetime.datetime.now()):
     
     #指定する画像フォルダ
 
-    TargetPath100 = "J:/MT"
-    SoucePath100  = "J:/DCIM/100EOS5D/"
+    TargetPath100 = BaseSoucePath
+    SoucePath100  = TargetDrive + "/DCIM/100EOS5D/"
     dev_id="12"
     cr2_file_move.proc_cr2_move(SoucePath100,TargetPath100,dev_id)
 
-    SoucePath101  = "J:/DCIM/101EOS5D/"
+    SoucePath101  = TargetDrive + "/DCIM/101EOS5D/"
     cr2_file_move.proc_cr2_move(SoucePath101,TargetPath100,dev_id)
 
-    SoucePath102 = "J:/SpCam/DCIM/100EOS5D/"
+    SoucePath102  = TargetDrive + "/SpCam/DCIM/100EOS5D/"
     dev_id="20"
     cr2_file_move.proc_cr2_move(SoucePath102,TargetPath100,dev_id)
     
